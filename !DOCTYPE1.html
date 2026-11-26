@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Portfolio | นายกมลภพ เขาโพธิ์งาม (ศิลป์-ภาษาญี่ปุ่น & นักพากย์เสียง)</title>
+    <!-- นำเข้าฟอนต์ Prompt จาก Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- นำเข้า Font Awesome สำหรับไอคอน -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #FF6B00;       /* สีส้มหลัก */
+            --primary-dark: #E05A00;  /* สีส้มเข้มเมื่อชี้เมาส์ */
+            --primary-light: #FFF3EB; /* สีส้มอ่อนสำหรับพื้นหลังเน้นข้อความ */
+            --bg-white: #FFFFFF;
+            --bg-light: #F9FAFB;
+            --text-dark: #1F2937;
+            --text-gray: #6B7280;
+            --border-color: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 10px 15px -3px rgba(255, 107, 0, 0.12), 0 4px 6px -2px rgba(255, 107, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ================= Navbar ================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .btn-github-nav {
+            background-color: var(--text-dark);
+            color: #fff !important;
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-github-nav:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ================= Section General ================= */
+        section {
+            padding: 6rem 1.5rem;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* ================= 1. Hero Section (หน้าแรก) ================= */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 7rem;
+            background: radial-gradient(circle at top right, var(--primary-light) 0%, transparent 45%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.6rem;
+            line-height: 1.25;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            color: var(--text-gray);
+            font-size: 1.08rem;
+            margin-bottom: 2rem;
+            max-width: 560px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.6rem;
+            border-radius: 10px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: var(--text-dark);
+            border: 1.5px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card-hero {
+            background: #1E1E2E;
+            color: #CDD6F4;
+            padding: 1.8rem;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 430px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 1.2rem;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #FF5F56; }
+        .dot.yellow { background: #FFBD2E; }
+        .dot.green { background: #27C93F; }
+
+        .code-line { margin-bottom: 0.45rem; font-family: 'Courier New', monospace; }
+        .kw { color: #CBA6F7; }
+        .fn { color: #89B4FA; }
+        .str { color: #A6E3A1; }
+        .prop { color: #FAB387; }
+
+        /* ================= 2. About Section (แนะนำตัว) ================= */
+        .bg-alternate {
+            background-color: var(--bg-light);
+            max-width: 100%;
+        }
+
+        .about-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .profile-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.8rem;
+            margin: 0 auto 1.2rem;
+            border: 4px solid var(--primary);
+        }
+
+        .profile-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-box p {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .quote-box {
+            margin-top: 1.2rem;
+            padding: 1rem;
+            background: var(--primary-light);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-style: italic;
+            border-left: 4px solid var(--primary);
+        }
+
+        .about-text h3 {
+            font-size: 1.45rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 1.1rem;
+            text-align: justify;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.9rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .skill-tag i {
+            color: var(--primary);
+        }
+
+        /* ================= 3. Projects Section (ผลงาน) ================= */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .filter-btn {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-gray);
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+        }
+
+        .project-banner {
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary) 0%, #FF9E44 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-category {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .project-desc {
+            color: var(--text-gray);
+            font-size: 0.92rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .project-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.2s;
+        }
+
+        .project-link:hover {
+            gap: 0.7rem;
+            color: var(--primary-dark);
+        }
+
+        /* ================= 4. Activities Section (กิจกรรม) ================= */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 55px;
+            margin-bottom: 2.2rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            width: 21px;
+            height: 21px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .timeline-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            margin-bottom: 0.6rem;
+        }
+
+        .timeline-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .timeline-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* ================= Footer ================= */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 4rem 1.5rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-brand span {
+            color: var(--primary);
+        }
+
+        .footer-brand p {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 0.7rem;
+            color: #D1D5DB;
+            font-size: 0.92rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .contact-list i {
+            color: var(--primary);
+            width: 18px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            color: #9CA3AF;
+            font-size: 0.85rem;
+        }
+
+        /* ================= Responsive (Mobile) ================= */
+        @media (max-width: 850px) {
+            .hero-grid, .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .skills-list {
+                justify-content: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.2rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: var(--shadow);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- เมนูนำทาง -->
+    <header>
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fa-solid fa-microphone-lines" style="color: var(--primary);"></i>
+                Kamonphop<span>.Portfolio</span>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="เปิดเมนู">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#about">แนะนำตัว</a></li>
+                <li><a href="#projects">ผลงาน</a></li>
+                <li><a href="#activities">กิจกรรม</a></li>
+                <li>
+                    <a href="https://github.com/kamonphop-example" target="_blank" rel="noopener noreferrer" class="btn-github-nav">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 1. ส่วนหน้าแรก (Home) -->
+    <section id="home">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-torii-gate"></i> ม.6/6 สายการเรียนศิลป์-ภาษาญี่ปุ่น | โรงเรียนธัญรัตน์
+                </div>
+                <h1>ถ่ายทอดอารมณ์ผ่านเสียงพากย์<br>และหลงใหลใน <span>ภาษาญี่ปุ่น</span></h1>
+                <p>
+                    สวัสดีครับ ผม <strong>นายกมลภพ เขาโพธิ์งาม</strong> มุ่งมั่นศึกษาต่อในคณะศิลปศาสตร์ / คณะอักษรศาสตร์ สาขาวิชาภาษาญี่ปุ่น เพื่อก้าวสู่เส้นทาง <strong>"นักพากย์เสียงมืออาชีพ"</strong> ที่สร้างสรรค์และเข้าถึงหัวใจผู้ฟัง
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fa-solid fa-headphones"></i> ชมผลงานการพากย์และทักษะ
+                    </a>
+                    <a href="https://github.com/kamonphop-example" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                        <i class="fa-brands fa-github"></i> เปิดดู GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="profile-card-hero">
+                    <div class="window-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="code-line"><span class="kw">const</span> studentProfile = {</div>
+                    <div class="code-line">  <span class="prop">name</span>: <span class="str">"นายกมลภพ เขาโพธิ์งาม"</span>,</div>
+                    <div class="code-line">  <span class="prop">school</span>: <span class="str">"โรงเรียนธัญรัตน์ (ม.6/6)"</span>,</div>
+                    <div class="code-line">  <span class="prop">program</span>: <span class="str">"ศิลป์-ภาษาญี่ปุ่น"</span>,</div>
+                    <div class="code-line">  <span class="prop">passion</span>: [<span class="str">"Voice Acting"</span>, <span class="str">"Japanese"</span>, <span class="str">"Anime"</span>],</div>
+                    <div class="code-line">  <span class="fn">goal</span>: () => <span class="str">"นักพากย์เสียงมืออาชีพ 🎙️"</span></div>
+                    <div class="code-line">};</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. ส่วนแนะนำตัว (About) -->
+    <div class="bg-alternate">
+        <section id="about" class="about-inner">
+            <div class="section-header">
+                <span class="section-tag">Statement of Purpose</span>
+                <h2 class="section-title">แนะนำตัวและแรงบันดาลใจ</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="profile-box">
+                    <div class="profile-avatar">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <h3>นายกมลภพ เขาโพธิ์งาม</h3>
+                    <p>ชั้นมัธยมศึกษาปีที่ 6/6 สายการเรียนศิลป์-ภาษาญี่ปุ่น</p>
+                    <p style="color: var(--text-gray); font-size: 0.85rem; margin-top: 0.4rem;">
+                        โรงเรียนธัญรัตน์
+                    </p>
+                    <div class="quote-box">
+                        "เพราะทุกตัวละครมีชีวิต และเสียงของผมคือตัวแทนหัวใจของตัวละคร"
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <h3>จุดเริ่มต้นของความรักในภาษาและศิลปะการพากย์เสียง</h3>
+                    <p>
+                        ความสนใจในภาษาต่างประเทศของผมเริ่มต้นจากการเติบโตในครอบครัวใหญ่ที่มีผู้ใหญ่อยู่ร่วมกัน การได้พูดคุยและรับฟังผู้ใหญ่บ่อยๆ ทำให้ผมเป็นคนช่างสังเกตและเข้าใจความคิดอารมณ์ของผู้อื่นได้ดี ประกอบกับโอกาสที่ได้ติดตามคุณพ่อไปทำงานและพูดคุยกับชาวต่างชาติตั้งแต่เด็ก ทำให้ตระหนักว่า <strong>"ภาษา" คือสะพานเชื่อมความเข้าใจระหว่างผู้คนอย่างแท้จริง</strong>
+                    </p>
+                    <p>
+                        งานอดิเรกที่ผมรักและทุ่มเทมากที่สุดคือ <strong>"การฝึกเสียงพากย์ตัวละคร"</strong> โดยได้รับแรงบันดาลใจจากอนิเมะญี่ปุ่นที่มีศิลปะการใช้เสียงสื่ออารมณ์ได้อย่างทรงพลัง จึงตัดสินใจเลือกเรียนสายศิลป์-ภาษาญี่ปุ่นในระดับมัธยมปลาย เพื่อศึกษาโครงสร้างภาษา วัฒนธรรม และน้ำเสียงอันมีเสน่ห์ของภาษาญี่ปุ่นอย่างลึกซึ้ง
+                    </p>
+                    <p>
+                        <strong>เป้าหมายในอนาคต:</strong> ตั้งใจเข้าศึกษาต่อใน <em>คณะศิลปศาสตร์ / คณะอักษรศาสตร์ สาขาวิชาภาษาญี่ปุ่น</em> เพื่อพัฒนาทักษะการฟัง พูด อ่าน และเขียนให้เชี่ยวชาญระดับสูง และก้าวไปเป็น <strong>"นักพากย์เสียงมืออาชีพ"</strong> ที่นำความรู้ภาษาญี่ปุ่นมาถ่ายทอดผลงานอนิเมะและสื่อสร้างสรรค์ได้อย่างเต็มเปี่ยม
+                    </p>
+
+                    <h4 style="font-size: 1rem; margin-bottom: 0.5rem;">ทักษะและความสนใจพิเศษ:</h4>
+                    <div class="skills-list">
+                        <span class="skill-tag"><i class="fa-solid fa-microphone"></i> การพากย์เสียงตัวละคร (Voice Acting)</span>
+                        <span class="skill-tag"><i class="fa-solid fa-language"></i> ภาษาญี่ปุ่น (ฟัง-พูด-อ่าน-เขียน)</span>
+                        <span class="skill-tag"><i class="fa-solid fa-globe"></i> พื้นฐานภาษาอังกฤษเพื่อการสื่อสาร</span>
+                        <span class="skill-tag"><i class="fa-solid fa-masks-theater"></i> การตีความอารมณ์ตัวละคร</span>
+                        <span class="skill-tag"><i class="fa-solid fa-torii-gate"></i> วัฒนธรรมญี่ปุ่นและอนิเมะ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 3. ส่วนผลงาน (Projects) -->
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-tag">Portfolio & Showcase</span>
+            <h2 class="section-title">ผลงานด้านการพากย์เสียงและภาษาญี่ปุ่น</h2>
+        </div>
+
+        <!-- ตัวกรองหมวดหมู่ผลงาน -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+            <button class="filter-btn" data-filter="voice">ผลงานพากย์เสียง</button>
+            <button class="filter-btn" data-filter="japanese">ทักษะภาษาญี่ปุ่น</button>
+            <button class="filter-btn" data-filter="creative">สื่อสร้างสรรค์</button>
+        </div>
+
+        <div class="projects-grid">
+            <!-- การ์ดผลงานที่ 1 -->
+            <article class="project-card" data-category="voice">
+                <div class="project-banner">
+                    <i class="fa-solid fa-microphone-lines"></i>
+                </div>
+                <div class="project-body">
+                    <span class="project-category">ผลงานฝึกพากย์เสียง (Fan Dubbing)</span>
+                    <h3 class="project-title">โปรเจกต์พากย์เสียงตัวละครอนิเมะญี่ปุ่น (พากย์ไทย)</h3>
+                    <p class="project-desc">
+                        ผลงานฝึกฝนการพากย์เสียงตัวละครอนิเมะหลากหลายบุคลิก เน้นการควบคุมจังหวะการหายใจ การสื่ออารมณ์ความรู้สึก และความกลมกลืนกับปากตัวละครต้นฉบับ
+                    </p>
+                    <div class="project-footer">
+                        <a href="https://github.com/kamonphop-example/voice-acting-demo" target="_blank" rel="noopener noreferrer" class="project-link">
+                            ดูรายละเอียด / ตัวอย่างผลงาน <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- การ์ดผลงานที่ 2 -->
+            <article class="project-card" data-category="japanese">
+                <div class="project-banner">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+                <div class="project-body">
+                    <span class="project-category">ทักษะภาษาญี่ปุ่นและการสื่อสาร</span>
+                    <h3 class="project-title">คลังบทสนทนาและสำนวนภาษาญี่ปุ่นจากอนิเมะ</h3>
+                    <p class="project-desc">
+                        รวบรวมโครงสร้างประโยค คำศัพท์ และระดับภาษา (Keigo และภาษาพูด) ที่พบในสื่อญี่ปุ่น พร้อมคำแปลและวิเคราะห์บริบททางวัฒนธรรม
+                    </p>
+                    <div class="project-footer">
+                        <a href="https://github.com/kamonphop-example/japanese-notes" target="_blank" rel="noopener noreferrer" class="project-link">
+                            เปิดดูบันทึกบน GitHub <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- การ์ดผลงานที่ 3 -->
+            <article class="project-card" data-category="creative">
+                <div class="project-banner">
+                    <i class="fa-solid fa-film"></i>
+                </div>
+                <div class="project-body">
+                    <span class="project-category">สื่อสร้างสรรค์และงานตัดต่อเสียง</span>
+                    <h3 class="project-title">การลงเสียงบรรยายและเล่าเรื่องเชิงสร้างสรรค์</h3>
+                    <p class="project-desc">
+                        ผลงานการฝึกอ่านออกเสียงบทบรรยายและการปรับแต่งคุณภาพเสียงเบื้องต้น เพื่อถ่ายทอดเรื่องราวให้น่าติดตามและเข้าถึงผู้ฟังได้อย่างเป็นธรรมชาติ
+                    </p>
+                    <div class="project-footer">
+                        <a href="https://github.com/kamonphop-example/narration-showcase" target="_blank" rel="noopener noreferrer" class="project-link">
+                            ดูข้อมูลผลงาน <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 4. ส่วนกิจกรรม (Activities) -->
+    <div class="bg-alternate">
+        <section id="activities" class="about-inner">
+            <div class="section-header">
+                <span class="section-tag">Activities & Experience</span>
+                <h2 class="section-title">ประสบการณ์และกิจกรรมที่เข้าร่วม</h2>
+            </div>
+
+            <div class="timeline">
+                <!-- กิจกรรมที่ 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">ระดับมัธยมศึกษาตอนปลาย (ม.4 – ม.6)</span>
+                        <h3>ศึกษาในแผนการเรียนศิลป์-ภาษาญี่ปุ่น โรงเรียนธัญรัตน์</h3>
+                        <p>
+                            พัฒนาทักษะภาษาญี่ปุ่นทั้ง 4 ด้าน (ฟัง พูด อ่าน เขียน) อย่างต่อเนื่อง พร้อมเรียนรู้ประวัติศาสตร์ ขนบธรรมเนียม และวัฒนธรรมญี่ปุ่นร่วมกับคณะครูและเพื่อนร่วมชั้น
+                        </p>
+                    </div>
+                </div>
+
+                <!-- กิจกรรมที่ 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">งานอดิเรกและการพัฒนาตนเอง</span>
+                        <h3>ฝึกฝนการพากย์เสียงตัวละครและการสื่อสารทางอารมณ์</h3>
+                        <p>
+                            ฝึกซ้อมการใช้เสียงพากย์ตัวละครในเวลาว่างอย่างสม่ำเสมอ ศึกษาเทคนิคการออกเสียง การเปลี่ยนโทนเสียงตามคาแรคเตอร์ และการตีความบทพูดจากสื่ออนิเมะญี่ปุ่น
+                        </p>
+                    </div>
+                </div>
+
+                <!-- กิจกรรมที่ 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <span class="timeline-date">ประสบการณ์ชีวิตและการสื่อสาร</span>
+                        <h3>การเรียนรู้การสื่อสารข้ามวัฒนธรรมกับชาวต่างชาติ</h3>
+                        <p>
+                            สั่งสมประสบการณ์จากการพบปะพูดคุยกับชาวต่างชาติตั้งแต่วัยเยาว์ ร่วมกับทักษะการรับฟังจากครอบครัวใหญ่ ช่วยเสริมสร้างความมั่นใจและความเข้าใจในการสื่อสารกับผู้คนหลากหลายพื้นฐาน
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ส่วนท้ายเว็บไซต์ (Footer) -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Kamonphop<span>.Portfolio</span></h3>
+                <p>
+                    แฟ้มสะสมผลงานออนไลน์ของ <strong>นายกมลภพ เขาโพธิ์งาม</strong> นักเรียนชั้นมัธยมศึกษาปีที่ 6/6 สายการเรียนศิลป์-ภาษาญี่ปุ่น โรงเรียนธัญรัตน์ จัดทำขึ้นเพื่อประกอบการสมัครเข้าศึกษาต่อในระดับอุดมศึกษา
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/kamonphop-example" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h4>ข้อมูลติดต่อ (สำหรับงานวิชาการและการศึกษาต่อ)</h4>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fa-solid fa-user"></i>
+                        <span>นายกมลภพ เขาโพธิ์งาม (ม.6/6)</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-school"></i>
+                        <span>โรงเรียนธัญรัตน์ (แผนการเรียนศิลป์-ภาษาญี่ปุ่น)</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>kamonphop.portfolio@example.com (ตัวอย่าง)</span>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-github"></i>
+                        <span>github.com/kamonphop-example</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 E-Portfolio นายกมลภพ เขาโพธิ์งาม | โรงเรียนธัญรัตน์</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript สำหรับเมนูมือถือและตัวกรองผลงาน -->
+    <script>
+        // 1. เปิด-ปิดเมนูบนหน้าจอมือถือ
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // ปิดเมนูอัตโนมัติเมื่อคลิกลิงก์บนมือถือ
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // 2. ระบบกรองหมวดหมู่การ์ดผลงาน
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
